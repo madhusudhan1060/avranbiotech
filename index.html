@@ -4,35 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AvranBiotech</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <style>
         html {
             scroll-behavior: smooth;
         }
     </style>
 </head>
-<body class="bg-gray-100 font-sans">
-    <!-- Header -->
-    <header class="bg-white text-dark py-2 shadow-md sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center px-6">
-            <h1 class="text-2xl font-bold">
-                <img src="./assets/logo.jpg" class="img-responsive h-[60px]" alt="AvranBiotech Logo" />
-            </h1>
-            <nav>
-                <ul class="flex space-x-6">
-                    <li><a href="#home" class="text-dark hover:underline">Home</a></li>
-                    <li><a href="#about" class="text-dark hover:underline">About Us</a></li>
-                    <li><a href="#gallery" class="text-dark hover:underline">Gallery</a></li>
-                    <li><a href="#contact" class="text-dark hover:underline">Contact</a></li>
-                </ul>
-            </nav>
+<body>
+  <nav class="bg-whites shadow-md sticky top-0 z-50">
+    <div class="bg-white max-w-7xl mx-auto px-4">
+      <div class="flex justify-between items-center py-2">
+        <div class="flex-shrink-0">
+          <a href="#" class="text-primary-foreground font-bold text-lg">
+            <img src="./assets/logo.jpg" class="h-[60px]" alt="logo" />
+          </a>
         </div>
-    </header>
+        <div class="hidden md:flex flex-grow justify-end items-center">
+          <a href="#" class="text-primary-foreground px-3 py-2">Home</a>
+          <a href="#about" class="text-primary-foreground px-3 py-2">About</a>
+          <a href="#gallery" class="text-primary-foreground px-3 py-2">Gallery</a>
+          <a href="#contact" class="text-primary-foreground px-3 py-2">Contact</a>
+        </div>
+        <div class="md:hidden flex">
+          <button id="mobile-menu-button" class="text-primary-foreground p-2 focus:outline-none">
+            <img aria-hidden="true" alt="menu" src="https://openui.fly.dev/openui/24x24.svg?text=☰" />
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden bg-primary">
+      <a href="#" class="block text-primary-foreground py-2 px-4">Home</a>
+      <a href="#" class="block text-primary-foreground py-2 px-4">About</a>
+      <a href="#" class="block text-primary-foreground py-2 px-4">Gallery</a>
+      <a href="#" class="block text-primary-foreground py-2 px-4">Contact</a>
+    </div>
+  </nav>
+
+  <script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>      
 
     <!-- Home Section -->
-    <section id="home" class="flex items-center justify-center w-100">
-        <div class="text-center text-white bg-[#71AA34] bg-opacity-50 p-8 rounded w-100">
-            <h2 class="text-4xl font-bold mb-2">Welcome to AvranBiotech</h2>
+    <section id="home" class="flex items-center justify-center w-full h-[300px] bg-contain bg-fixed bg-[url(./assets/banner.jpeg)]">
+        <div class="text-center text-white bg-white/30 backdrop-blur-md p-8 rounded flex flex-col justify-center w-full h-full">
+            <h2 class="text-2xl lg:text-4xl font-bold mb-2">Welcome to Avran Biotech</h2>
             <p class="text-lg">Seeds of Quality, Harvests of Joy.</p>
         </div>
     </section>
@@ -41,8 +61,14 @@
     <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center text-green-600 mb-8">About Us</h2>
-            <p class="text-gray-700 text-lg leading-relaxed text-center">
-                At AvranBiotech, we specialize in providing innovative and sustainable solutions to enhance agricultural productivity. Our team is dedicated to delivering high-quality products that help farmers achieve their goals.
+            <p class="text-gray-700 text-lg leading-relaxed text-center mb-4">
+                At Avran Biotech, we are committed to revolutionizing agriculture with innovative, sustainable, and high-yield solutions. Our advanced research and cutting-edge biotechnology ensure that farmers have access to premium-quality seeds designed for superior performance in diverse growing conditions.  
+            </p>
+            <p class="text-gray-700 text-lg leading-relaxed text-center mb-4">
+            With a focus on resilience, our seeds are engineered to withstand environmental challenges, resist pests and diseases, and maximize productivity. We prioritize eco-friendly farming practices, helping farmers achieve higher yields while promoting soil health and sustainability.  
+            </p>
+            <p class="text-gray-700 text-lg leading-relaxed text-center mb-4">
+            Backed by a team of experts, Avran Biotech continuously invests in research and development to create next-generation seed varieties tailored to modern agricultural needs. Our commitment to quality, innovation, and farmer success drives everything we do, making us a trusted partner in the journey toward a more sustainable and prosperous future in farming.
             </p>
         </div>
     </section>
@@ -53,31 +79,59 @@
             <h2 class="text-3xl font-bold text-center text-green-600 mb-8">Gallery</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 <div class="bg-white shadow rounded overflow-hidden">
-                    <img src="https://via.placeholder.com/300x200?text=Tomato+Seed+Packet" alt="Tomato Seed Packet" class="w-full h-48 object-cover">
+                    <img src="./assets/products/green-chilli.jpeg" alt="Hot Pepper Seed Packet" class="w-full object-cover">
                 </div>
                 <div class="bg-white shadow rounded overflow-hidden">
-                    <img src="https://via.placeholder.com/300x200?text=Mirchi+Seed+Packet" alt="Mirchi Seed Packet" class="w-full h-48 object-cover">
+                    <img src="./assets/products/hot-pepper-2.jpeg" alt="Mirchi Seed Packet" class="w-full object-cover">
                 </div>
                 <div class="bg-white shadow rounded overflow-hidden">
-                    <img src="https://via.placeholder.com/300x200?text=Vegetable+Seed+Packet" alt="Vegetable Seed Packet" class="w-full h-48 object-cover">
+                    <img src="./assets/products/kiran-teja.jpeg" alt="Kiran teja Seed Packet" class="w-full object-cover">
+                </div>
+                <div class="bg-white shadow rounded overflow-hidden">
+                    <img src="./assets/products/tomoto.jpeg" alt="Tomato Seed Packet" class="w-full object-cover">
+                </div>
+                <div class="bg-white shadow rounded overflow-hidden">
+                    <img src="./assets/products/tomoto-1.jpeg" alt="Tomato Seed Packet" class="w-full object-cover">
+                </div>
+                <div class="bg-white shadow rounded overflow-hidden">
+                    <img src="./assets/products/ridge.jpeg" alt="Ridge Seed Packet" class="w-full object-cover">
+                </div>
+                <div class="bg-white shadow rounded overflow-hidden">
+                    <img src="./assets/products/ridge1.jpeg" alt="Ridge Seed Packet" class="w-full object-cover">
+                </div>
+                <div class="bg-white shadow rounded overflow-hidden">
+                    <img src="./assets/products/ridge2.jpeg" alt="Ridge Seed Packet" class="w-full object-cover">
+                </div>
+                <div class="bg-white shadow rounded overflow-hidden">
+                    <img src="./assets/products/paddy.jpeg" alt="Paddy Seed Packet" class="w-full object-cover">
+                </div>
+                <div class="bg-white shadow rounded overflow-hidden">
+                    <img src="./assets/products/paddy-1.jpeg" alt="Paddy Seed Packet" class="w-full object-cover">
+                </div>
+                <div class="bg-white shadow rounded overflow-hidden">
+                    <img src="./assets/products/paddy-3.jpeg" alt="Paddy Seed Packet" class="w-full object-cover">
+                </div>
+                <div class="bg-white shadow rounded overflow-hidden">
+                    <img src="./assets/products/bendi.jpeg" alt="Bindi Seed Packet" class="w-full object-cover">
+                </div>
+                <div class="bg-white shadow rounded overflow-hidden">
+                    <img src="./assets/products/bendi-2.jpeg" alt="Bindi Seed Packet" class="w-full object-cover">
+                </div>
+                <div class="bg-white shadow rounded overflow-hidden">
+                    <img src="./assets/products/bitter.jpeg" alt="Bitter Seed Packet" class="w-full object-cover">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
+    <section id="contact" class="pt-10 bg-white">
+        <div class="container mx-auto">
             <h2 class="text-3xl font-bold text-center text-green-600 mb-8">Contact</h2>
             <p class="text-gray-700 text-lg leading-relaxed text-center mb-4">
                 Reach out to us for any inquiries or collaboration opportunities.
             </p>
-            <form class="max-w-xl mx-auto space-y-4">
-                <input type="text" placeholder="Your Name" class="w-full border border-gray-300 p-3 rounded">
-                <input type="email" placeholder="Your Email" class="w-full border border-gray-300 p-3 rounded">
-                <textarea placeholder="Your Message" class="w-full border border-gray-300 p-3 rounded h-32"></textarea>
-                <button type="submit" class="w-full bg-green-600 text-white py-3 rounded hover:bg-green-700">Send Message</button>
-            </form>
+            <img src="./assets/products/cover.jpeg" alt="footer" />
         </div>
     </section>
 </body>
