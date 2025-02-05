@@ -33,21 +33,13 @@
         </div>
       </div>
     </div>
-    <div id="mobile-menu" class="md:hidden hidden bg-primary">
+    <div id="mobile-menu" class="md:hidden hidden bg-white">
       <a href="#" class="block text-primary-foreground py-2 px-4">Home</a>
-      <a href="#" class="block text-primary-foreground py-2 px-4">About</a>
-      <a href="#" class="block text-primary-foreground py-2 px-4">Gallery</a>
-      <a href="#" class="block text-primary-foreground py-2 px-4">Contact</a>
+      <a href="#about" class="block text-primary-foreground py-2 px-4">About</a>
+      <a href="#gallery" class="block text-primary-foreground py-2 px-4">Gallery</a>
+      <a href="#contact" class="block text-primary-foreground py-2 px-4">Contact</a>
     </div>
-  </nav>
-
-  <script>
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenuButton.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  </script>      
+  </nav>   
 
     <!-- Home Section -->
     <section id="home" class="flex items-center justify-center w-full h-[300px] bg-contain bg-fixed bg-[url(./assets/banner.jpeg)]">
@@ -134,5 +126,23 @@
             <img src="./assets/products/cover.jpeg" alt="footer" />
         </div>
     </section>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuItems = mobileMenu.querySelectorAll('a'); // Assuming menu items are links
+
+        // Toggle menu on button click
+        mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        });
+
+        // Hide menu when a menu item is clicked
+        menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden'); // Ensure it hides
+        });
+        });
+    </script>
 </body>
 </html>
